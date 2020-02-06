@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: .25em;
+}
+
+.wrapper {
+    background-color: coral;
+}
+
+#cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    background-color: #E9EFFD;
+    box-shadow: 5px 5px;
+    margin: 10px;
+    border: 2px solid black;
+    padding: .5em;
+    max-width: 350px;
+}
+
+#domain-search {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+}
