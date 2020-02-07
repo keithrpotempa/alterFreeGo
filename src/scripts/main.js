@@ -15,6 +15,7 @@ const refreshCards = () => {
 refreshCards();
 formDomManager.saveCardFormRender();
 cardEventManager.addResetEventListener();
-searchEventManager.addSearchEventLister();
+searchEventManager.addDomainSearchEventLister();
+searchEventManager.addTwitterSearchEventLister();
 
 export default refreshCards
