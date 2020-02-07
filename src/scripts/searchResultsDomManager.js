@@ -32,7 +32,6 @@ const searchResultsDomManager = {
     },
     nameGen: {
         resultFactory(result) {
-            //TODO: Fix placeholder when NameGen API manager is working
             return `
             <article class="namegen-search-result">
                 <p><strong>First Name:</strong> ${result.name} </p>

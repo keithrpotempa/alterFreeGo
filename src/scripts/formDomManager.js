@@ -1,3 +1,5 @@
+import nameRegions from './nameRegionList.js';
+
 const formDomManager = {
     // TODO: Break into groups: card, searches, etc. 
     // Or factories?
@@ -36,7 +38,11 @@ const formDomManager = {
         document.querySelector("#lname").value = "";
     },
     nameGenFormFactory(){
-        // TODO: Finish regions
+        let regionsHtml = ""
+        nameRegions.forEach(region => {
+            regionsHtml += this.makeRegionOption(region);
+        });
+
         return `
         <article id="namegen-search" class="search__article">
         <h1>Name Generator</h1>
@@ -57,12 +63,9 @@ const formDomManager = {
             <input type="radio" name="nameGen_gender__button" id="nameGen__male" value="male">
         </fieldset>
         <fieldset>
+            <label for="nameGen-region">Region</label>
             <select name="nameGen-region" id="nameGen-region">
-                <option value="nameGen-region__10">10</option>
-                <option value="nameGen-region__50">50</option>
-                <option value="nameGen-region__100">100</option>
-                <option value="nameGen-region__250">250</option>
-                <option value="nameGen-region__500">500</option>
+                ${regionsHtml}
             </select> 
         </fieldset>
         <button id="namegen-search-btn">Search</button>
@@ -73,6 +76,10 @@ const formDomManager = {
         const formContainer = document.querySelector("#nameGen-search-container");
         let formHtml = formDomManager.nameGenFormFactory();
         formContainer.innerHTML = formHtml;
+    },
+    makeRegionOption (region) {
+        return `<option value="nameGen-region__${region}">${region}</option>
+        `
     }
 }
 
