@@ -15,7 +15,10 @@ const apiManager = {
         getCards() {
             return fetch(this.baseUrl).then(resp => resp.json());
         },
-        saveName(nameObject){
+        getCard(id) {
+            return fetch(`${this.baseUrl}/${id}`).then(resp => resp.json());
+        },
+        saveCard(nameObject){
             // If there's an id, the user is editing an existing card
             if (nameObject.id) {
                 fetch(`${this.baseUrl}/${nameObject.id}`, {
@@ -32,7 +35,12 @@ const apiManager = {
                 }).then(refreshCards)
             }
         },
-        deleteName(id) {
+        editCard (card) {
+            document.querySelector("#entry-id").value = card.id;
+            document.querySelector("#fname").value = card.fname;
+            document.querySelector("#lname").value = card.lname;
+        },
+        deleteCard(id) {
             return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
                 // Do you need this? .then(response => response.json())
                 .then(refreshCards)

@@ -1,3 +1,5 @@
+// TODO: Split this out so there's a Form Dom Manager as well...
+
 const cardDomManager = {
     cardFactory(card) {
         return `
@@ -47,6 +49,11 @@ const cardDomManager = {
             </div>
         </article>
         `
+    },
+    clearForm() {
+        document.querySelector("#entry-id").value = "";
+        document.querySelector("#fname").value = "";
+        document.querySelector("#lname").value = "";
     },
     makeCardObject(){
         let id = document.querySelector("#entry-id").value

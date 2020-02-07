@@ -7,7 +7,7 @@ const cardEventManager = {
         const entryId = document.querySelector("#entry-id").value;
         saveBtn.addEventListener("click", () => {
             const cardObject = cardDomManager.makeCardObject();
-            apiManager.json.saveName(cardObject)
+            apiManager.json.saveCard(cardObject)
         })
     },
     addDeleteEventListener() {
@@ -15,8 +15,26 @@ const cardEventManager = {
         deleteBtns.forEach(btn => {
             const btnId = btn.id.split("--")[1]
             btn.addEventListener("click", () => {
-                apiManager.json.deleteName(btnId);
+                apiManager.json.deleteCard(btnId);
             })
+        })
+    },
+    addEditEventListener(){
+        const editBtns = document.querySelectorAll(".edit-button");
+        editBtns.forEach(btn => {
+            const btnId = btn.id.split("--")[1]
+            btn.addEventListener("click", (e) => {
+                const entryId = e.target.id.split("--")[1]
+                console.log(entryId);
+                apiManager.json.getCard(entryId)
+                    .then(apiManager.json.editCard)                
+            })
+        })
+    },
+    addResetEventListener(){
+        const resetBtn = document.querySelector(".reset-button");
+        resetBtn.addEventListener("click", () => {
+            cardDomManager.clearForm();
         })
     }
 }
