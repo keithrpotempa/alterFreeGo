@@ -1,5 +1,6 @@
 import apiKey from "./apikey.js";
 import refreshCards from './main.js';
+import formDomManager from "./formDomManager.js";
 
 const apiManager = {
     domains: {
@@ -25,14 +26,14 @@ const apiManager = {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(nameObject)
-                }).then(refreshCards);
+                }).then(formDomManager.clearForm).then(refreshCards);
             // Otherwise, the user is saving a new card
             } else {
                 fetch(`${this.baseUrl}`, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(nameObject)
-                }).then(refreshCards)
+                }).then(formDomManager.clearForm).then(refreshCards)
             }
         },
         editCard (card) {
@@ -42,7 +43,6 @@ const apiManager = {
         },
         deleteCard(id) {
             return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
-                // Do you need this? .then(response => response.json())
                 .then(refreshCards)
         }
     }

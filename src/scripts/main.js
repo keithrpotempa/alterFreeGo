@@ -2,6 +2,7 @@ import searchEventManager from './searchEventManager.js'
 import cardDomManager from './cardDomManager.js';
 import apiManager from './apiManager.js';
 import cardEventManager from './cardEventManager.js'
+import formDomManager from './formDomManager.js';
 
 const refreshCards = () => {
     apiManager.json.getCards()
@@ -12,7 +13,7 @@ const refreshCards = () => {
 }
 
 refreshCards();
-cardDomManager.saveCardFormRender();
+formDomManager.saveCardFormRender();
 cardEventManager.addResetEventListener();
 searchEventManager.addSearchEventLister();
 
