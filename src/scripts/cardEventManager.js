@@ -1,5 +1,6 @@
 import apiManager from "./apiManager.js";
 import cardDomManager from "./cardDomManager.js";
+import formDomManager from "./formDomManager.js";
 
 const cardEventManager = {
     addSaveEventListener() {
@@ -25,7 +26,6 @@ const cardEventManager = {
             const btnId = btn.id.split("--")[1]
             btn.addEventListener("click", (e) => {
                 const entryId = e.target.id.split("--")[1]
-                console.log(entryId);
                 apiManager.json.getCard(entryId)
                     .then(apiManager.json.editCard)                
             })
@@ -34,7 +34,7 @@ const cardEventManager = {
     addResetEventListener(){
         const resetBtn = document.querySelector(".reset-button");
         resetBtn.addEventListener("click", () => {
-            cardDomManager.clearForm();
+            formDomManager.clearForm();
         })
     }
 }
