@@ -31,6 +31,11 @@ const apiManager = {
                     body: JSON.stringify(nameObject)
                 }).then(refreshCards)
             }
+        },
+        deleteName(id) {
+            return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
+                // Do you need this? .then(response => response.json())
+                .then(refreshCards)
         }
     }
 }

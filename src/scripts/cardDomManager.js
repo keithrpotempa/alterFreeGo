@@ -1,9 +1,13 @@
 const cardDomManager = {
-    cardFactory(object) {
+    cardFactory(card) {
         return `
             <article class="card">
-                <p><strong>First Name:</strong> ${object.fname} </p>
-                <p><strong>Last Name:</strong> ${object.lname} </p>
+                <p><strong>First Name:</strong> ${card.fname} </p>
+                <p><strong>Last Name:</strong> ${card.lname} </p>
+                <div class="card-buttons__div">
+                    <button class="delete-button" id="delete-button--${card.id}">DELETE</button>
+                    <button class="edit-button" id="edit-button--${card.id}">EDIT</button>
+                </div>
             </article>
             `;
         },

@@ -7,6 +7,7 @@ const refreshCards = () => {
     apiManager.json.getCards()
         .then(cardDomManager.renderCards)
         .then(cardEventManager.addSaveEventListener)
+        .then(cardEventManager.addDeleteEventListener);
 }
 
 refreshCards();
