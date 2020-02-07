@@ -9,6 +9,15 @@ const cardEventManager = {
             const cardObject = cardDomManager.makeCardObject();
             apiManager.json.saveName(cardObject)
         })
+    },
+    addDeleteEventListener() {
+        const deleteBtns = document.querySelectorAll(".delete-button");
+        deleteBtns.forEach(btn => {
+            const btnId = btn.id.split("--")[1]
+            btn.addEventListener("click", () => {
+                apiManager.json.deleteName(btnId);
+            })
+        })
     }
 }
 

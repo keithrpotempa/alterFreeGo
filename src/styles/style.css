@@ -42,3 +42,39 @@ article {
     max-width: 500px;
     width: 100%;
 }
+
+.div__form {
+    display: flex;
+    justify-content: center;
+}
+
+/*      BUTTONS      */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.save-button:hover {
+    background-color: #45a049;
+  }
+
+.reset-button {
+    background-color: whitesmoke;
+}
+
+.reset-button:hover {
+    background-color: lightgray;
+  }
+
+button {
+    padding: 12px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+  }
