@@ -18,13 +18,13 @@ const addAllFormEventListeners = () => {
 
 const addAllSearchEventListeners = () => {
     searchEventManager.addDomainSearchEventLister();
-    searchEventManager.addTwitterSearchEventListener();
     searchEventManager.addNameGenSearchEventListener();
+    // searchEventManager.addTwitterSearchEventListener();
 }
 
 refreshCards();
-formDomManager.nameGenFormRender();
-formDomManager.saveCardFormRender();
+formDomManager.nameGen.formRender();
+formDomManager.saveCard.formRender();
 addAllFormEventListeners();
 addAllSearchEventListeners(); 
 

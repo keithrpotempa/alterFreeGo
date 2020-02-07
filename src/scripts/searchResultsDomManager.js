@@ -8,26 +8,9 @@ const searchResultsDomManager = {
             </article>
             `
         },
-        // TODO: this could probably be shifted to a greater scope,
-        // since it's repeated elsewhere in this file
-        renderSearchResults(searchResults) {
-            const results = document.getElementById("search-results");
-            results.innerHTML = this.resultFactory(searchResults);
-        }
-    },
-    twitter: {
-        resultFactory(result) {
-            //TODO: Fix placeholder when Twitter API manager is working
-            return `
-            <article class="domain-search-result">
-                <p><strong>Availability:</strong> PLACEHOLDER </p>
-                <p><strong>Domain:</strong> PLACEHOLDER </p>
-            </article>
-            `
-        },
-        renderSearchResults(searchResults) {
-            const results = document.getElementById("search-results");
-            results.innerHTML = this.resultFactory(searchResults);
+        renderResults(results) {
+            const resultsContainer = document.getElementById("search-results");
+            resultsContainer.innerHTML = this.resultFactory(results);
         }
     },
     nameGen: {
@@ -47,6 +30,21 @@ const searchResultsDomManager = {
             });
         }
     }
+    // twitter: {
+    //     resultFactory(result) {
+    //         //FIXME: Fix placeholder when Twitter API manager is working
+    //         return `
+    //         <article class="domain-search-result">
+    //             <p><strong>Availability:</strong> PLACEHOLDER </p>
+    //             <p><strong>Domain:</strong> PLACEHOLDER </p>
+    //         </article>
+    //         `
+    //     },
+    //     renderSearchResults(searchResults) {
+    //         const results = document.getElementById("search-results");
+    //         results.innerHTML = this.resultFactory(searchResults);
+    //     }
+    // },
 }
 
 export default searchResultsDomManager;
