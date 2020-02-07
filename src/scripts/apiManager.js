@@ -45,6 +45,13 @@ const apiManager = {
             return fetch(`${this.baseUrl}/${id}`, {method: "DELETE"})
                 .then(refreshCards)
         }
+    },
+    nameGen: {
+        baseUrl: "https://uinames.com/api/?" ,
+        search(number, gender, region) {
+            const url = `${this.baseUrl}amount=${number}&gender=${gender}&region=${region}`;
+            return fetch(url).then(resp => resp.json());
+        }
     }
 }
 

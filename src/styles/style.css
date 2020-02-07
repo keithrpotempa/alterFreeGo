@@ -31,10 +31,10 @@ article {
     max-width: 350px;
 }
 
-#domain-search {
+.search__article {
     max-width: 500px;
     width: 100%;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .domain-search-result {
