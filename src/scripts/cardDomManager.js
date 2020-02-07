@@ -1,5 +1,3 @@
-import formDomManager from "./formDomManager.js";
-
 const cardDomManager = {
     cardFactory(card) {
         return `
