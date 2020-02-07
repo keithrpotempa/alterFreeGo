@@ -1,4 +1,5 @@
 import apiKey from "./apikey.js";
+import refreshCards from './main.js';
 
 const apiManager = {
     domains: {
@@ -13,8 +14,25 @@ const apiManager = {
         baseUrl: "http://localhost:8088/names",
         getCards() {
             return fetch(this.baseUrl).then(resp => resp.json());
+        },
+        saveName(nameObject){
+            // If there's an id, the user is editing an existing card
+            if (nameObject.id) {
+                fetch(`${this.baseUrl}/${nameObject.id}`, {
+                    method: "PUT",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(nameObject)
+                }).then(refreshCards);
+            // Otherwise, the user is saving a new card
+            } else {
+                fetch(`${this.baseUrl}`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(nameObject)
+                }).then(refreshCards)
+            }
         }
     }
-};
+}
 
 export default apiManager;
